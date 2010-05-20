@@ -22,7 +22,7 @@
 #popup_adsense_code_status{float:right;width:90%;}
 #popup_highlights_post_status{float:right;background-position:0 9px;width:465px;margin-top:10px;}
 #popup_highlights_category_status{float:right;background-position:0 10px;width:465px;margin-top:10px;}
-#gen-preview{height:110px;width:100px;margin:0 auto;background:url(../one-panel/images/default/status/preview.gif) no-repeat center center;}
+#gen-preview{height:110px;width:100px;margin:0 auto;background:url(../OnePanel/images/default/status/preview.gif) no-repeat center center;}
 #popup_featured_video_status{background-position:0 6px;float:right;width:72%;}
 #popup_feedburner_url_status{width:65px;background-position:23px 8px;}
 #popup_feedburner_id_status{width:65px;background-position:23px 8px;}
@@ -37,8 +37,8 @@
 .ot_embed_video{width:94% !important;height:120px;float:left;margin:0;vertical-align:top;}
 .html_label{float:left;width:26%;}
 #thumbnail-container{padding:0;margin:0;overflow:0;}
-.ThumbSearch input{border:1px solid #d4e2ef;-moz-border-radius:3px;-webkit-border-radius:3px;background:#fff url(../one-panel/images/default/pop_content/ThumbSearch.gif) no-repeat right center;padding:6px;width:97%;}
-.ThumbSearch input:focus{border:1px solid #bdd5eb !important;-moz-border-radius:3px;-webkit-border-radius:3px;background:#fff url(../one-panel/images/default/pop_content/ThumbSearch.gif) no-repeat right center;padding:6px;width:97%;}
+.ThumbSearch input{border:1px solid #d4e2ef;-moz-border-radius:3px;-webkit-border-radius:3px;background:#fff url(../OnePanel/images/default/pop_content/ThumbSearch.gif) no-repeat right center;padding:6px;width:97%;}
+.ThumbSearch input:focus{border:1px solid #bdd5eb !important;-moz-border-radius:3px;-webkit-border-radius:3px;background:#fff url(../OnePanel/images/default/pop_content/ThumbSearch.gif) no-repeat right center;padding:6px;width:97%;}
 #popup_thumbnails_post_status{float:right;width:65%;padding:6px 0 0 0;text-indent:24px;background-position:0 9px;line-height:22px;display:inline;}
 .labelfloat{float:left;font-weight:bold;padding:5px 0;line-height:22px;vertical-align:middle;}
 .ThumbContainer input[type="button"],.ThumbContainer input[type="submit"],.ThumbSubmit{width:auto !important;text-align:center !important;padding:3px 5px !important;display:inline;}
