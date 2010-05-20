@@ -61,9 +61,9 @@ Version: 2.0.2
 	define( 'ONE_PANEL_AJAX_PREFIX', 'opcp_' );
 	
 	// Start the test harness
-    require_once realpath( ONE_PANEL_DIR . '/debug/onepaneldebug.php' );
-    require_once realpath( ONE_PANEL_DIR . '/debug/onepanelentry.php' );
-    require_once realpath( ONE_PANEL_DIR . '/debug/onepaneltracker.php' );
+    require_once realpath( ONE_PANEL_DIR . 'debug/onepaneldebug.php' );
+    require_once realpath( ONE_PANEL_DIR . 'debug/onepanelentry.php' );
+    require_once realpath( ONE_PANEL_DIR . 'debug/onepaneltracker.php' );
 	OnePanelDebug::Start();
 
 	/*
