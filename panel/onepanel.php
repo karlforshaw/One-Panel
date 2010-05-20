@@ -1363,7 +1363,7 @@
             <div id="OnePanelInner">
             <div id="Header">
             	<div id="Logo">
-            		<img border="0" src="<?php echo get_option('home'); ?>/wp-content/plugins/one-panel/images/default/logo.gif"/>
+            		<img border="0" src="<?php echo get_option('home'); ?>/wp-content/plugins/OnePanel/images/default/logo.gif"/>
             	</div>
                 <div id="TopLinks">
                 	<ul>
@@ -1388,7 +1388,7 @@
              <div id="Content">
              	<div id="Recently_Used">
                 	<div id="Heading">
-                    	<div class="heading_img" style="border-right:1px solid #606060;"><img src="<?php echo get_option('home'); ?>/wp-content/plugins/one-panel/images/default/panel/headings/recently.png" border="0" /></div>
+                    	<div class="heading_img" style="border-right:1px solid #606060;"><img src="<?php echo get_option('home'); ?>/wp-content/plugins/OnePanel/images/default/panel/headings/recently.png" border="0" /></div>
                     </div>
                     <div id="Items">
                     	<?php $this->PrintUseful(); ?>
@@ -1396,7 +1396,7 @@
                 </div>
              <div id="Right">
                 	<div id="SearchTab">
-                    	<div class="heading_img"><img src="<?php echo get_option('home'); ?>/wp-content/plugins/one-panel/images/default/panel/headings/search.png" border="0" /></div>
+                    	<div class="heading_img"><img src="<?php echo get_option('home'); ?>/wp-content/plugins/OnePanel/images/default/panel/headings/search.png" border="0" /></div>
                     </div>
                 	<div id="SearchBar">
                         	<form action="javascript:;" onsubmit="op_admin.Search.DoSearch( $F('search_box'), 1 )">
@@ -1436,8 +1436,8 @@
      
 				<div id="overlay" class="overlay" style="display:none;"><div id="pop_loading"></div></div>
 				<div id="action-frame" class="popup" style="display:none;">
-					<img class="plogo" src="<?php echo get_option('home'); ?>/wp-content/plugins/one-panel/images/default/panel/logo.gif" alt="OnePanel" /> <!-- Logo -->
-					<a class="pbutton" href="javascript:;" onclick="op_admin.HidePopup()" href="#"><img src="<?php echo get_option('home'); ?>/wp-content/plugins/one-panel/images/default/panel/button.gif" alt="X" /></a> <!-- Close Button -->
+					<img class="plogo" src="<?php echo get_option('home'); ?>/wp-content/plugins/OnePanel/images/default/panel/logo.gif" alt="OnePanel" /> <!-- Logo -->
+					<a class="pbutton" href="javascript:;" onclick="op_admin.HidePopup()" href="#"><img src="<?php echo get_option('home'); ?>/wp-content/plugins/OnePanel/images/default/panel/button.gif" alt="X" /></a> <!-- Close Button -->
 					<div id="action-title" class="ptitle"><div></div></div> <!-- Heading Text -->
 					<div id="action-content" class="pcontent"><!-- Content --></div>
 				</div>
@@ -1459,7 +1459,7 @@
 		 */
 		private function PrintCategoryMenu() {
 			?>
-					<div class="menu-title"><div class="heading_img"><img src="<?php echo get_option('home'); ?>/wp-content/plugins/one-panel/images/default/panel/headings/categories.png" border="0" /></div></div>
+					<div class="menu-title"><div class="heading_img"><img src="<?php echo get_option('home'); ?>/wp-content/plugins/OnePanel/images/default/panel/headings/categories.png" border="0" /></div></div>
 					<ul>
 						<li><a href="javascript:;" onclick="op_admin.Search.DoCategory( 'Appearance', 1 )">Appearance</a></li>
 						<li><a href="javascript:;" onclick="op_admin.Search.DoCategory( 'SEO', 1 )">SEO</a></li>
@@ -1506,7 +1506,7 @@
 	                    <div class="feature-box">
 							<div class="thumbnails" id="<?php echo get_class( $module ); ?>">
 								<a href="javascript:;" onclick="op_admin.AjaxRender('opcp_<?php echo get_class( $module ); ?>Render')"></a>
-								<div class="thumb_info"><a href="javascript:;" title="More Info..." onmouseout="op_admin.ToolTip.Hide()" onclick="op_admin.ToolTip.Show('<?php echo get_class( $module ); ?>')"><img border="0" src="<?php echo get_option('home'); ?>/wp-content/plugins/one-panel/images/default/icons/spacer.gif"/></a></div>
+								<div class="thumb_info"><a href="javascript:;" title="More Info..." onmouseout="op_admin.ToolTip.Hide()" onclick="op_admin.ToolTip.Show('<?php echo get_class( $module ); ?>')"><img border="0" src="<?php echo get_option('home'); ?>/wp-content/plugins/OnePanel/images/default/icons/spacer.gif"/></a></div>
 							</div>
 	                        <h2><?php echo $module->GetTitle(); ?></h2>
 	                    </div>
@@ -1530,7 +1530,7 @@
                 	<div id="Footer_left"></div>
                 	<div id="Footer_right"></div>
                 	<div id="Footer_bg">
-                		<img src="<?php echo get_option('home'); ?>/wp-content/plugins/one-panel/images/default/icons/help_icon.png"/>
+                		<img src="<?php echo get_option('home'); ?>/wp-content/plugins/OnePanel/images/default/icons/help_icon.png"/>
                 		<div id="f_left"></div>
                 		<div id="f_bg">
                         	<div id="news-ticker-content"><?php echo $this->GetNewsTick(); ?></div>
@@ -1689,7 +1689,7 @@
 						<div id="tt_thumb"><div id="tt_image"></div></div>
 						<div id="tt_content">
 							<div id="tt_inner">
-						    	<div id="op_logo"><img src="<?php echo get_option('home'); ?>/wp-content/plugins/one-panel/images/default/tooltip/op_logo.gif" width="75" height="21" alt="One Panel" /></div>
+						    	<div id="op_logo"><img src="<?php echo get_option('home'); ?>/wp-content/plugins/OnePanel/images/default/tooltip/op_logo.gif" width="75" height="21" alt="One Panel" /></div>
 						    	<div id="tt_title"></div>
 						        <div id="tt_inner_content"></div>
 						    </div>
@@ -1712,7 +1712,7 @@
 				<div class="LicenseContainer">
                 	<div class="LicenseContent">
 						<div class="LicenseLogo">
-                        <img border="0" src="<?php echo get_option('home'); ?>/wp-content/plugins/one-panel/images/default/license/logo.png">
+                        <img border="0" src="<?php echo get_option('home'); ?>/wp-content/plugins/OnePanel/images/default/license/logo.png">
                         </div>
 							<div class="LicenseForm">
 								<form action="javascript:op_admin.License.Validate()">
@@ -1721,7 +1721,7 @@
 								</form>
 							</div>
                             <div id="one_panel_license_icon" class="LicenseIcon">
-                           	 <img border="0" src="<?php echo get_option('home'); ?>/wp-content/plugins/one-panel/images/default/license/icons/lock.gif">
+                           	 <img border="0" src="<?php echo get_option('home'); ?>/wp-content/plugins/OnePanel/images/default/license/icons/lock.gif">
                             </div>
 					</div>
 				</div>
@@ -1758,7 +1758,7 @@
 			// License Held Date
 			$response['content']  = '<div class="LicenseThanks">';
 			$response['content'] .= '<div class="LicenseThanksStroke">';
-			$response['content'] .= '<img class="valign_img" src="'. get_option('home') .'/wp-content/plugins/one-panel/images/default/icons/star.png" border="0" />Howdy '. $license_info['licensee_name'] .'! You have been a loyal One Theme customer since ' . $license_info['purchase_date'] . '.';
+			$response['content'] .= '<img class="valign_img" src="'. get_option('home') .'/wp-content/plugins/OnePanel/images/default/icons/star.png" border="0" />Howdy '. $license_info['licensee_name'] .'! You have been a loyal One Theme customer since ' . $license_info['purchase_date'] . '.';
 			$response['content'] .= '</div>';
 			$response['content'] .= '</div>';
 			
@@ -1768,35 +1768,35 @@
 			
 			// License Holder
 			$response['content'] .= '<div class="Row1" style="border-top:0;-moz-border-radius:3px 3px 0 0;-webkit-border-radius:3px 3px 0 0;">';
-			$response['content'] .= '	<div class="LeftItem"><img class="valign_img" src="'. get_option('home') .'/wp-content/plugins/one-panel/images/default/icons/user.gif" border="0"/><strong>Licensee</strong></div>';
+			$response['content'] .= '	<div class="LeftItem"><img class="valign_img" src="'. get_option('home') .'/wp-content/plugins/OnePanel/images/default/icons/user.gif" border="0"/><strong>Licensee</strong></div>';
 			$response['content'] .= '	<div class="RightItem">' . $license_info['licensee_name'] . ' ' . $license_info['licensee_surname'] . '</div>';
 			$response['content'] .= '</div>';
 			$response['content'] .= '<div style="clear:both;"></div>';
 			
 			// The License
 			$response['content'] .= '<div class="Row2">';
-			$response['content'] .= '	<div class="LeftItem"><img class="valign_img" src="'. get_option('home') .'/wp-content/plugins/one-panel/images/default/icons/key.gif" border="0"/><strong>License Key</strong></div>';
+			$response['content'] .= '	<div class="LeftItem"><img class="valign_img" src="'. get_option('home') .'/wp-content/plugins/OnePanel/images/default/icons/key.gif" border="0"/><strong>License Key</strong></div>';
 			$response['content'] .= '	<div class="RightItem">' . $license_info['license_no'] . '</div>';
 			$response['content'] .= '</div>';
 			$response['content'] .= '<div style="clear:both;"></div>';
 			
 			// License URL
 			$response['content'] .= '<div class="Row1">';
-			$response['content'] .= '	<div class="LeftItem"><img class="valign_img" src="'. get_option('home') .'/wp-content/plugins/one-panel/images/default/icons/url.gif" border="0"/><strong>Licensed URL</strong></div>';
+			$response['content'] .= '	<div class="LeftItem"><img class="valign_img" src="'. get_option('home') .'/wp-content/plugins/OnePanel/images/default/icons/url.gif" border="0"/><strong>Licensed URL</strong></div>';
 			$response['content'] .= '	<div class="RightItem">' . $license_info['url'] . '</div>';
 			$response['content'] .= '</div>';
 			$response['content'] .= '<div style="clear:both;"></div>';
 			
 			// Current Theme
 			$response['content'] .= '<div class="Row2">';
-			$response['content'] .= 	'<div class="LeftItem"><img class="valign_img" src="'. get_option('home') .'/wp-content/plugins/one-panel/images/default/icons/layout.gif" border="0"/><strong>Active Theme</strong></div>';
+			$response['content'] .= 	'<div class="LeftItem"><img class="valign_img" src="'. get_option('home') .'/wp-content/plugins/OnePanel/images/default/icons/layout.gif" border="0"/><strong>Active Theme</strong></div>';
 			$response['content'] .= '	<div class="RightItem">' . $license_info['theme_name'] . '</div>';
 			$response['content'] .= '</div>';
 			$response['content'] .= '<div style="clear:both;"></div>';
 			
 			// Current Version
 			$response['content'] .= '<div class="Row1" style="border-bottom:0;-moz-border-radius:0 0 3px 3px;-webkit-border-radius:0 0 3px 3px;">';
-			$response['content'] .= '	<div class="LeftItem"><img class="valign_img" src="'. get_option('home') .'/wp-content/plugins/one-panel/images/default/icons/version.gif" border="0"/><strong>Version</strong></div>';
+			$response['content'] .= '	<div class="LeftItem"><img class="valign_img" src="'. get_option('home') .'/wp-content/plugins/OnePanel/images/default/icons/version.gif" border="0"/><strong>Version</strong></div>';
 			$response['content'] .= '	<div class="RightItem">' . ONE_PANEL_VERSION . ($this->SoftwareUpgradeAvailable() ? ' <em>(Out of Date)</em>': '') . '</div>';
 			$response['content'] .= '</div>';
 			$response['content'] .= '<div style="clear:both;"></div>';
