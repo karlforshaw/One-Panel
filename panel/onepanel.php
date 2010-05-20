@@ -1367,9 +1367,8 @@
             	</div>
                 <div id="TopLinks">
                 	<ul>
-                    	<li><a href="javascript:;" onclick="op_admin.AjaxRender('opcp_LicenseInfoRender')">License</a></li>
+                		<li><a href="http://www.one-theme.com/support/" target="_blank" style="margin:0;">Customer Support</a></li>
                     	<li><a href="http://members.one-theme.com" target="_blank">Members Area</a></li>
-                    	<li><a href="http://www.one-theme.com/support/" target="_blank" style="margin:0;">Support Forums</a></li>
                 	</ul>
                 </div>
                 <div id="ImpExp">
