@@ -609,7 +609,7 @@
 		public function AddAdminStyles() {
     
 	    	// Set Paths
-		    $css_path = get_option( 'home' ) . '/wp-content/plugins/one-panel';
+		    $css_path = get_option( 'home' ) . '/wp-content/plugins/OnePanel';
 		    $global_js_path = get_option( 'home' ) . '/wp-includes/js';
 		    
 		    // Add Admin Styles
