@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * TODO need to check for updates!
+ * 
+ */
+
 	final class OnePanel {
 		
 		/*
@@ -210,8 +215,7 @@
 	    private function InitiateInstallInterface() {
 	    	
     		OnePanelDebug::Info( 'Fresh install detected.' );
-	    	define( 'ONE_PANEL_FRESH_INSTALL', true );
-			add_action( 'wp_ajax_' . ONE_PANEL_AJAX_PREFIX . 'ValidateLicense', array( $this, 'SetLicenseKey' ) ); // License Entry
+	    	self::Install();
 	    	
 	    }
 	    
@@ -740,9 +744,6 @@
     		if (defined( 'ONE_PANEL_NO_CONFIG' )) {
 				$this->PrintNoConfig();
 			}
-		    elseif (defined( 'ONE_PANEL_FRESH_INSTALL' ))  { // TODO Change for Fresh install
-		    	$this->PrintLicensePage();
-		    }
 		    elseif (defined( 'ONE_PANEL_BAD_DATA' )) {
 		    	$this->PrintIncompatible();
 		    }
@@ -758,113 +759,6 @@
     		
     	}
     	
-    	
-    	/**
-    	 * Check License
-    	 * 
-    	 * Sends a request to the updates server to validate a license key
-    	 * This function is somewhat legacy due to the license check API
-    	 * laid down in 1.x. But it still works effectively so we'll keep
-    	 * it for now.
-    	 *
-    	 * @return bool
-    	 */
-		function CheckLicense() {
-			
-			// Debug
-			$tracker = OnePanelDebug::Track( 'Checking license' );
-			
-			// Set up some variables for our dev environment
-			$outcome = false;
-			$host_name = 'one-theme.com'; 
-			$host_header = 'Host:updates.one-theme.com';
-	
-			// Business socks!  
-	    	$validation_num = 5361; 
-		    $license_no = &self::$operational_data[0]['license_no'];
-		    
-		    // Never trust user input ever
-		    $license_no = trim( $license_no );
-		    
-		    if (strlen( $license_no ) != 32) {
-		    	OnePanelDebug::Info( 'Invalid license no. Sending \'no_license\'.' );
-		    	$license_no = 'no_license';
-		    }
-		    
-		    // Socket to 'em (lol)
-		    $sp = @fsockopen( $host_name, '80', $error_no, $error_str, 15 );
-		    if (! $sp) {
-		    	
-		    	OnePanelDebug::Info( 'Cannot connect to OneTheme, server unavailable' );
-		    	define( 'ONE_PANEL_SERVER_DOWN', true );
-		    	$outcome = '404'; // TODO dont like this
-		    	
-		    }
-		    
-		    // Prepare the package
-		    $payload = 'u=' . get_option('siteurl') . '&' . 'l=' . $license_no . '&v=' . ONE_PANEL_VERSION;
-		    
-		    // Send send send
-		    fputs($sp, 'GET /fc.php?' . $payload . ' HTTP/1.1' . "\r\n");
-		    fputs($sp, $host_header . "\r\n");
-		    fputs($sp, "Connection:close\r\n\r\n");
-		    
-		    // Get the response
-		    $response = '';
-		    while (! feof($sp)) {
-		    	$response .= fgets($sp, 128);
-		    }
-		    fclose($sp);
-		    
-		    $response = explode( "\r\n\r\n", $response ); 
-		    
-		    
-		    // Check for a bad response
-		    if (empty($response[1])) {
-		    	
-		    	OnePanelDebug::Info( 'Empty response recieved from server.' );
-		    	define( 'ONE_PANEL_SERVER_DOWN', true );
-		    	$outcome = '404';
-		    	
-		    }
-		    
-		    
-		    // Prepare the response
-		    $response_data = unserialize( base64_decode( $response[1] ) );
-		    
-		    
-		    // Process the response
-			if ($response_data[0] == sha1( $validation_num . '://' . substr( $license_no, 0, 16 ))) { // License Checks Out
-			    
-			    if (count($response_data) > 1) {
-
-			    	self::$operational_data[0]['url'] = $response_data[1]['uri'];
-					self::$operational_data[0]['licensee_id'] = $response_data[1]['id'];
-					self::$operational_data[0]['licensee_name'] = $response_data[1]['name'];
-					self::$operational_data[0]['licensee_surname'] = $response_data[1]['surname'];
-					self::$operational_data[0]['purchase_date'] = $response_data[1]['date'];
-					self::$operational_data[0]['newest_version'] = $response_data[2];
-						
-					$this->Install();
-					self::PackData();
-			    	$outcome = true;
-			    	
-			    }
-		    
-		    }
-		    else {
-		    	
-		    	OnePanelDebug::Info( 'Bad license, uninstalling' );
-			    $this->Uninstall();
-			    
-		    }
-		    
-		    
-		    // Finish up
-		    $tracker->Affirm();
-		    return $outcome;
-		    
-	    }
 	    
 	    
 	    /**
@@ -1246,34 +1140,6 @@
 			
 		}
 		
-		
-		/**
-		 * Set License Key
-		 * 
-		 * Ajax function that accepts the license from the license entry screen,
-		 * checks it, and returns the results of the check in HTML.
-		 * 
-		 * @uses $_POST['license']
-		 */
-		public function SetLicenseKey() {
-			
-			$license_key = mysql_real_escape_string( $_POST['license'] );
-			
-			self::$operational_data[0]['license_no'] = $license_key;
-			
-			if($this->CheckLicense()) {
-				$response['content'] = '<p>Thank you! <span class="get_started"><a  href="' . get_option( 'home' ) . '/wp-admin/admin.php?page=OnePanel">Let\'s get started</a></span></p>';
-				$response['icon'] = '<img border="0" src="' . get_option('home') .  '/wp-content/plugins/one-panel/images/default/license/icons/tick.gif"/>';
-				self::PackData();
-			}
-			else {
-				$response['content'] = '<p>Sorry, looks like that license is phony!</p>';
-				$response['icon'] = '<img border="0" src="' . get_option('home') .  '/wp-content/plugins/one-panel/images/default/license/icons/cross.gif"/>';
-			}
-			
-			die(json_encode($response));
-			
-		}
 		
 		
 		/**
@@ -2763,6 +2629,8 @@
 			// Make sure we dont change these on every license check, we use them to check for upgrades.
 			if (! isset( self::$operational_data[0]['data_version_date'] )) self::$operational_data[0]['data_version_date'] = ONE_PANEL_VERSION_DATE; 
 			if (! isset( self::$operational_data[0]['data_version'] )) 		self::$operational_data[0]['data_version'] = ONE_PANEL_VERSION;
+			
+			self::PackData();
 			
 		}
 	}

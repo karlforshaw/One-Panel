@@ -53,10 +53,10 @@ Version: 2.0.2
 	
 	// Define Constants
 	define( 'ROOTDIR', get_bloginfo( 'stylesheet_directory' ) );	
-	define( 'ONE_PANEL_VERSION', '2.0.2' );
+	define( 'ONE_PANEL_VERSION', '2.1' );
     define( 'ONE_PANEL_VERSION_DATE', 1250544340 );
 	define( 'ONE_PANEL_DIR', realpath( ABSPATH . '/wp-content/plugins/one-panel/' ) );
-	define( 'ONE_PANEL_ACTIVE', true );
+	define( 'ONE_PANEL_ACTIVE', true ); // XXX Remove?
 	define( 'ONE_PANEL_MAX_SEARCH_RESULTS', 4 );
 	define( 'ONE_PANEL_AJAX_PREFIX', 'opcp_' );
 	
@@ -90,8 +90,9 @@ Version: 2.0.2
     OnePanelConfig::Start();
     
     // Include Externals
-    OnePanelLib::RequireFileOnce( ONE_PANEL_DIR .'/onepanelexternals.php' );
-    OnePanelExternals::AddActions();
+    //OnePanelLib::RequireFileOnce( ONE_PANEL_DIR .'/onepanelexternals.php' );
+    //OnePanelExternals::AddActions();
+    // THESE ARE BROKEN
     
 	/*
 	 * Create one of two objects depending on which environment we appear
