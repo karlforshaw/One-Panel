@@ -1926,7 +1926,7 @@
 
 				$response['content']  = '<div class="ExportC">';
 				$response['content'] .= '<div style="clear:both;"><div class="TabActive"><b>Export Data</b></div>';
-				$response['content'] .= '<div class="TabText">'. OnePanel::GetLicenseeName() .', please backup your One Panel data below &darr;</div>';
+				$response['content'] .= '<div class="TabText">Please backup your One Panel data below &darr;</div>';
 				$response['content'] .= '<div style="clear:both;"></div>';
 				$response['content'] .= '<div id="exportstroke">';
 				$response['content'] .= '<div id="export-container" style="clear:both;">';
@@ -1940,7 +1940,7 @@
 				
 			}
 			else {
-				$response['content']  = '<div class="module_error"><div class="module_error_stroke"><strong>Oops...</strong><br /><span style="line-height:20px;">'. OnePanel::GetLicenseeName() .', your uploads directory is not currently writable, which means that we cannot backup your data right now. If you would like to backup your data, please make your uploads directory writable and re-open this window.</span></div></div>' . "\n";
+				$response['content']  = '<div class="module_error"><div class="module_error_stroke"><strong>Oops...</strong><br /><span style="line-height:20px;">Your uploads directory is not currently writable, which means that we cannot backup your data right now. If you would like to backup your data, please make your uploads directory writable and re-open this window.</span></div></div>' . "\n";
 			}
 			
 			$response['content'] = utf8_encode( $response['content'] );
@@ -1955,7 +1955,7 @@
 			
 			$response['content']  = '<div style="width:690px;margin:0 auto;">';
 			$response['content'] .= '<div style="clear:both;"><div id="import_browse_tab" class="TabActive"><a href="javascript:;" onclick="op_admin.ImportData.SwitchMode(\'browse\')">Browse for file</a></div><div id="import_upload_tab" class="TabInActive"><a href="javascript:;" onclick="op_admin.ImportData.SwitchMode(\'upload\')">Upload a File</a></div></div>';
-			$response['content'] .= '<div class="TabText">'. OnePanel::GetLicenseeName() .', please select a tab &rarr;</div>';
+			$response['content'] .= '<div class="TabText">Please select a tab &rarr;</div>';
 			$response['content'] .= '<div style="clear:both;"></div>';
 			$response['content'] .= '<div id="importstroke">';
 			$response['content'] .= '<div id="import-container" style="clear:both;">';
@@ -2092,7 +2092,7 @@
 				}
 				$response .= '</ul>';
 				$response .= '</div>' . "\n";
-				$response .= '<div id="import-file-info">'. OnePanel::GetLicenseeName() .', please select a file.</div>';
+				$response .= '<div id="import-file-info">Please select a file.</div>';
 				$response .= '<div style="clear:both;"></div>';
 				
 			}
@@ -2416,18 +2416,6 @@
 				
 			}
 			
-		}
-		
-		
-		/**
-		 * Get Licensee Name
-		 * 
-		 * Returns the first name of the licensee.
-		 * 
-		 * @return str
-		 */
-		public static function GetLicenseeName() {
-			return self::$operational_data[0]['licensee_name'];	
 		}
 		
 		
