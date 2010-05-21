@@ -525,7 +525,7 @@
 				$response['info_class'] = 'FeatureActiveInfo';
 				$response['info_content'] = 'Feature is active.'; // TODO make a generic function for generating this responses it shouldnt be in three places
 				$response['help_text'] = 'You cannot deactivate your default skin.';
-				$response['button_text'] = '<a href="javascript:;" onclick="op_admin.AjaxOnOff(\'opcp_' . $viewing_skin_key . 'Deactivate\')"><img src="' . get_option('home') . '/wp-content/plugins/one-panel/images/default/pop_content/disable.gif" border="0" /></a>';
+				$response['button_text'] = '<a href="javascript:;" onclick="op_admin.AjaxOnOff(\'opcp_' . $viewing_skin_key . 'Deactivate\')"><img src="' . get_option('home') . '/wp-content/plugins/OnePanel/images/default/pop_content/disable.gif" border="0" /></a>';
 				
 				$response = json_encode( $response );
 				die($response);

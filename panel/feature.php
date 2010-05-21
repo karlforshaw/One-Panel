@@ -44,7 +44,7 @@
 			$response['thumb_class'] = 'ThumbActive';
 			$response['info_class'] = 'FeatureActiveInfo';
 			$response['info_content'] = 'Feature is ' . (($this->active) ? 'active' : 'inactive') . '.';
-			$response['button_text'] = '<a href="javascript:;" onclick="op_admin.AjaxOnOff(\'opcp_' . (is_null($this->alternate_key) ? get_class( $this ) : $this->alternate_key) . 'Deactivate\')"><img src="' . get_option('home') . '/wp-content/plugins/one-panel/images/default/pop_content/disable.gif" border="0" /></a>';
+			$response['button_text'] = '<a href="javascript:;" onclick="op_admin.AjaxOnOff(\'opcp_' . (is_null($this->alternate_key) ? get_class( $this ) : $this->alternate_key) . 'Deactivate\')"><img src="' . get_option('home') . '/wp-content/plugins/OnePanel/images/default/pop_content/disable.gif" border="0" /></a>';
 			
 			$response = json_encode( $response );
 			die($response);
@@ -67,7 +67,7 @@
 			$response['thumb_class'] = 'ThumbInActive';
 			$response['info_class'] = 'FeatureInActiveInfo';
 			$response['info_content'] = 'Feature is inactive.';
-			$response['button_text'] = '<a href="javascript:;" onclick="op_admin.AjaxOnOff(\'opcp_' . (is_null($this->alternate_key) ? get_class( $this ) : $this->alternate_key) . 'Activate\')"><img src="' . get_option('home') . '/wp-content/plugins/one-panel/images/default/pop_content/enable.gif" border="0" /></a>';
+			$response['button_text'] = '<a href="javascript:;" onclick="op_admin.AjaxOnOff(\'opcp_' . (is_null($this->alternate_key) ? get_class( $this ) : $this->alternate_key) . 'Activate\')"><img src="' . get_option('home') . '/wp-content/plugins/OnePanel/images/default/pop_content/enable.gif" border="0" /></a>';
 			
 			$response = json_encode( $response );
 			die($response);
@@ -110,7 +110,7 @@
 			$return .=  		'<div id="popup_' . (is_null( $alternate_key ) ? get_class( $this ) : $alternate_key) . '_help" class="Desc">' . $this->help_text . '</div>';
 			$return .=			'<div id="popup_' . (is_null( $alternate_key ) ? get_class( $this ) : $alternate_key) . '_thumb" class="' . (($this->active) ? 'ThumbActive' : 'ThumbInActive') . '"><div class="' . (is_null( $alternate_key ) ? get_class( $this ) : 'Generic_Thumb') . '" id="' . (is_null( $alternate_key ) ? get_class( $this ) : $alternate_key) . '"></div></div>';
 			$return .=			'<div id="popup_' . (is_null( $alternate_key ) ? get_class( $this ) : $alternate_key) . '_info" class="Feature' . (($this->active) ? 'Active' : 'InActive') . 'Info"> Feature is ' . (($this->active) ? 'active' : 'inactive') . '.</div>';
-			$return .=			'<div id="popup_' . (is_null( $alternate_key ) ? get_class( $this ) : $alternate_key) . '_image" class="' . (($this->active) ? 'Disable' : 'Enable') . '"><a href="javascript:;" onclick="' . ($this->IsActive() ? 'op_admin.AjaxOnOff(\'opcp_' . (is_null( $alternate_key ) ? get_class( $this ) : $alternate_key) . 'Deactivate\')"><img src="' . get_option('home') . '/wp-content/plugins/one-panel/images/default/pop_content/disable.gif" border="0" />' : 'op_admin.AjaxOnOff(\'opcp_' . (is_null( $alternate_key ) ? get_class( $this ) : $alternate_key) . 'Activate\')"><img src="' . get_option('home') . '/wp-content/plugins/one-panel/images/default/pop_content/enable.gif" border="0" />') . '</a></div>';
+			$return .=			'<div id="popup_' . (is_null( $alternate_key ) ? get_class( $this ) : $alternate_key) . '_image" class="' . (($this->active) ? 'Disable' : 'Enable') . '"><a href="javascript:;" onclick="' . ($this->IsActive() ? 'op_admin.AjaxOnOff(\'opcp_' . (is_null( $alternate_key ) ? get_class( $this ) : $alternate_key) . 'Deactivate\')"><img src="' . get_option('home') . '/wp-content/plugins/OnePanel/images/default/pop_content/disable.gif" border="0" />' : 'op_admin.AjaxOnOff(\'opcp_' . (is_null( $alternate_key ) ? get_class( $this ) : $alternate_key) . 'Activate\')"><img src="' . get_option('home') . '/wp-content/plugins/one-panel/images/default/pop_content/enable.gif" border="0" />') . '</a></div>';
 			$return .=		'</div>';
 			$return .= '</div>';
 			
