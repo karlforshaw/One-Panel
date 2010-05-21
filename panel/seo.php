@@ -24,7 +24,7 @@
 		private function RenderNoEnable() {
 			
 			$response = '<div class="module_error"><div class="module_error_stroke"><div style="padding-bottom:8px;font-size:14px;display:block;"><b>Please Note...</b></div>
-			<span style="font-weight:normal;">'. OnePanel::GetLicenseeName() .', you must be using custom permalinks to use this feature. Activate custom permalinks in WordPress settings.</span></div></div>';
+			<span style="font-weight:normal;">You must be using custom permalinks to use this feature. Activate custom permalinks in WordPress settings.</span></div></div>';
 			
 			return $response;
 		}

@@ -87,7 +87,7 @@
 				
 				$response  = '<div style="float:right;width:33%;padding-top:10px;"><label class="label">Guideline Video Size</label>' . "\n";
 				$response .= '<div class="html_video"><div class="html_videostroke" style="font-weight:normal;margin:0;text-align:justify;">' . "\n";
-				$response .= '<div style="line-height:22px;">Sorry, '. OnePanel::GetLicenseeName() .'. The theme you have enabled doesn\'t have any guideline video dimensions.</div>' . "\n";
+				$response .= '<div style="line-height:22px;">Sorry, the theme you have enabled doesn\'t have any guideline video dimensions.</div>' . "\n";
 				$response .= '</div>' . "\n";
 				$response .= '</div>' . "\n";
 				$response .= '</div>' . "\n";
@@ -164,7 +164,7 @@
 		}
 		
 		public function GetInactiveMessage() {
-			return '<div class="popup_no_results"><div class="module_error_stroke" style="padding:7px;font-size:11px;">'. OnePanel::GetLicenseeName() .', Featured Video is currently inactive.</div></div>' . "\n";
+			return '<div class="popup_no_results"><div class="module_error_stroke" style="padding:7px;font-size:11px;">Featured Video is currently inactive.</div></div>' . "\n";
 		}
 		
 		public function GetChunk() {

@@ -147,7 +147,7 @@
 			$response['content']  = '<div class="ThumbTabs" style="width:670px;">';
 			$response['content'] .= '<div style="clear:both;"><div id="thumbnails-general-tab" class="TabActive"><a href="javascript:;" onclick="op_admin.Thumbnails.SwitchMode(\'general\')">General Options</a></div><div id="thumbnails-tool-tab" class="TabInActive"><a href="javascript:;" onclick="op_admin.Thumbnails.SwitchMode(\'tool\')">Thumbnail Generator</a></div></div>';
 			$response['content'] .= '<div>';
-			$response['content'] .= '<div class="TabText">'. OnePanel::GetLicenseeName() .', please select a tab &rarr;</div>';
+			$response['content'] .= '<div class="TabText">Please select a tab &rarr;</div>';
 			$response['content'] .= '<div id="thumbnail-container">';
 			$response['content'] .= $this->features['ThumbnailsToggle']->Render(); 
 			$response['content'] .= '</div>';
@@ -190,7 +190,7 @@
 		public function SearchPosts() {
 			
 			if (empty( $_POST['search_term'] )) {
-		    	$output = '<div class="popup_no_results"><div class="module_error_stroke">'. OnePanel::GetLicenseeName() .', please enter a search term.</div></div>';
+		    	$output = '<div class="popup_no_results"><div class="module_error_stroke">Please enter a search term.</div></div>';
 		    	die($output);
 		    }
 		    
@@ -203,7 +203,7 @@
 		    $result = mysql_query( $sql );
 		    
 		    if ((! $result) || (mysql_numrows($result) == 0 )) {
-		   		$output = '<div class="popup_no_results"><div class="module_error_stroke">Sorry '. OnePanel::GetLicenseeName() .', your search didn\'t return any results.</div></div>'; 
+		   		$output = '<div class="popup_no_results"><div class="module_error_stroke">Sorry, your search didn\'t return any results.</div></div>'; 
 		    	die($output);
 		    }
 		    
@@ -253,7 +253,7 @@
 					}
 				}
 				else {
-					$response['content'] .= '<div class="popup_no_results"><div class="module_error_stroke">'. OnePanel::GetLicenseeName() .', the post does not contain any images.</div></div>';
+					$response['content'] .= '<div class="popup_no_results"><div class="module_error_stroke">The post does not contain any images.</div></div>';
 				}
 			}
 			else {
@@ -301,7 +301,7 @@
 				 */
 				if(! @copy( $_POST['url'], $destination )) {
 				
-				    $response['content'] .= '<div class="popup_no_results"><div class="module_error_stroke">Sorry '. OnePanel::GetLicenseeName() .', that image could not be copied.</div></div>';
+				    $response['content'] .= '<div class="popup_no_results"><div class="module_error_stroke">Sorry, that image could not be copied.</div></div>';
 				    
 				    /*
 				     * Debug Only
@@ -425,7 +425,7 @@
 		    			
 		    			if (is_wp_error( $new_thumbnail_path )) OnePanelDebug::Error( $new_thumbnail_path->get_error_message() );
 		    			OnePanelDebug::Error( 'Unable to create thumbnail, moving to next iteration.' );
-		    			$error = '<div class="popup_no_results"><div class="module_error_stroke">'. OnePanel::GetLicenseeName() .', One Panel could not resize the image for ' . $custom_field_name . '. <a href="javascript:;" onclick="op_admin.Thumbnails.SwitchMode(\'tool\')">Please try another.</a></div></div>';
+		    			$error = '<div class="popup_no_results"><div class="module_error_stroke">One Panel could not resize the image for ' . $custom_field_name . '. <a href="javascript:;" onclick="op_admin.Thumbnails.SwitchMode(\'tool\')">Please try another.</a></div></div>';
 		    			continue;
 		    			
 		    		}
@@ -455,7 +455,7 @@
 				
 			}
 			else { // Upload path is not writable
-				$return = '<div class="popup_no_results"><div class="module_error_stroke">'. OnePanel::GetLicenseeName() .', the image path is not currently writable. Please chmod the directory first.</div></div>';
+				$return = '<div class="popup_no_results"><div class="module_error_stroke">The image path is not currently writable. Please chmod the directory first.</div></div>';
 			}
 			
 			$success->Affirm();

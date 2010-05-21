@@ -566,7 +566,7 @@
 		public function SearchPosts() {
 			
 			if (empty( $_POST['search_term'] )) {
-		    	$output = '<div class="popup_no_results"><div class="module_error_stroke">'. OnePanel::GetLicenseeName() .', please enter a search term.</div></div>';
+		    	$output = '<div class="popup_no_results"><div class="module_error_stroke">Please enter a search term.</div></div>';
 		    	die($output);
 		    }
 		    
@@ -579,7 +579,7 @@
 		    $result = mysql_query( $sql );
 		    
 		    if ((! $result) || (mysql_numrows($result) == 0 )) {
-		   		$output = '<div class="popup_no_results"><div class="module_error_stroke">Sorry '. OnePanel::GetLicenseeName() .', your search didn\'t return any results.</div></div>';
+		   		$output = '<div class="popup_no_results"><div class="module_error_stroke">Sorry, your search didn\'t return any results.</div></div>';
 		    	die($output);
 		    }
 		    

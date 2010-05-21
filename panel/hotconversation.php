@@ -39,7 +39,7 @@
 			$number_of_posts = OnePanelConfig::GetNumberOfHotConversationPosts();
 			if (is_null( $number_of_posts )) $number_of_posts = 4;
 			
-			$response['content'] = '<div class="no_activate" style="padding:10px;"><strong style="font-size:14px;">Please Note...</strong><br /><br />'. OnePanel::GetLicenseeName() .', Hot Conversation cannot be activated until you have ' . $number_of_posts . ' posts with thumbnails, and the Thumbnails module active.</div>';
+			$response['content'] = '<div class="no_activate" style="padding:10px;"><strong style="font-size:14px;">Please Note...</strong><br /><br />Hot Conversation cannot be activated until you have ' . $number_of_posts . ' posts with thumbnails, and the Thumbnails module active.</div>';
 			$response['content'] = utf8_encode( $response['content'] ); 
 			$response['title'] = $this->title;
 			$response['info'] = $this->help_text;

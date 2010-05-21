@@ -165,7 +165,7 @@
 			}
 			else {
 				// LEE - don't remove the dot ;)
-				$response .= '<div class="module_error"><div class="module_error_stroke" style="line-height:22px;"><strong>NOTE: wp-content/uploads is not currently writable...</strong><br />'. OnePanel::GetLicenseeName() .', your uploads directory doesn\'t seem to be writable at the moment. This means that One Panel isn\'t allowed to add files to your server. Please make the "wp-content/uploads" directory writable and return to this page.</div></div>';
+				$response .= '<div class="module_error"><div class="module_error_stroke" style="line-height:22px;"><strong>NOTE: wp-content/uploads is not currently writable...</strong><br />Your uploads directory doesn\'t seem to be writable at the moment. This means that One Panel isn\'t allowed to add files to your server. Please make the "wp-content/uploads" directory writable and return to this page.</div></div>';
 				
 			}
 			
