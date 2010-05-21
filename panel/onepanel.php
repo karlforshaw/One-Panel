@@ -404,13 +404,7 @@
     			$data = self::$operational_data;
     			
     			unset( $data[0]['installed'] );
-    			unset( $data[0]['license_no'] );
-    			unset( $data[0]['url'] );
-				unset( $data[0]['licensee_id'] );
-				unset( $data[0]['licensee_name'] );
-				unset( $data[0]['licensee_surname'] );
-				unset( $data[0]['purchase_date'] );
-				unset( $data[0]['newest_version'] );
+				//unset( $data[0]['newest_version'] );
 				
 				$data[0]['export_date'] = date( 'l jS \o\f F Y \a\t G:i:s' );
 				
@@ -749,9 +743,6 @@
 		    }
 		    elseif ((defined( 'ONE_PANEL_DATA_UPGRADED' )) || (defined( 'ONE_PANEL_DATA_NOT_UPGRADED' ))) {
 		    	$this->PrintDataUpgraded();
-		    }
-		    elseif (defined( 'ONE_PANEL_SERVER_DOWN' )) {
-		    	$this->PrintServerDown();
 		    }
     		else {
     			$this->PrintMain();
@@ -1744,84 +1735,6 @@
 		}
 		
 		
-		/**
-		 * Print License Info
-		 * 
-		 * This is the popup that shows the license info when clicked in the top menu.
-		 *
-		 */
-		public function PrintLicenseInfo() {
-			
-			$license_info = &self::$operational_data[0];
-			
-			// License Held Date
-			$response['content']  = '<div class="LicenseThanks">';
-			$response['content'] .= '<div class="LicenseThanksStroke">';
-			$response['content'] .= '<img class="valign_img" src="'. get_option('home') .'/wp-content/plugins/OnePanel/images/default/icons/star.png" border="0" />Howdy '. $license_info['licensee_name'] .'! You have been a loyal One Theme customer since ' . $license_info['purchase_date'] . '.';
-			$response['content'] .= '</div>';
-			$response['content'] .= '</div>';
-			
-			// License Information
-			$response['content'] .= '<div class="LicenseInfo">';
-			$response['content'] .= '<div class="LContainer">';
-			
-			// License Holder
-			$response['content'] .= '<div class="Row1" style="border-top:0;-moz-border-radius:3px 3px 0 0;-webkit-border-radius:3px 3px 0 0;">';
-			$response['content'] .= '	<div class="LeftItem"><img class="valign_img" src="'. get_option('home') .'/wp-content/plugins/OnePanel/images/default/icons/user.gif" border="0"/><strong>Licensee</strong></div>';
-			$response['content'] .= '	<div class="RightItem">' . $license_info['licensee_name'] . ' ' . $license_info['licensee_surname'] . '</div>';
-			$response['content'] .= '</div>';
-			$response['content'] .= '<div style="clear:both;"></div>';
-			
-			// The License
-			$response['content'] .= '<div class="Row2">';
-			$response['content'] .= '	<div class="LeftItem"><img class="valign_img" src="'. get_option('home') .'/wp-content/plugins/OnePanel/images/default/icons/key.gif" border="0"/><strong>License Key</strong></div>';
-			$response['content'] .= '	<div class="RightItem">' . $license_info['license_no'] . '</div>';
-			$response['content'] .= '</div>';
-			$response['content'] .= '<div style="clear:both;"></div>';
-			
-			// License URL
-			$response['content'] .= '<div class="Row1">';
-			$response['content'] .= '	<div class="LeftItem"><img class="valign_img" src="'. get_option('home') .'/wp-content/plugins/OnePanel/images/default/icons/url.gif" border="0"/><strong>Licensed URL</strong></div>';
-			$response['content'] .= '	<div class="RightItem">' . $license_info['url'] . '</div>';
-			$response['content'] .= '</div>';
-			$response['content'] .= '<div style="clear:both;"></div>';
-			
-			// Current Theme
-			$response['content'] .= '<div class="Row2">';
-			$response['content'] .= 	'<div class="LeftItem"><img class="valign_img" src="'. get_option('home') .'/wp-content/plugins/OnePanel/images/default/icons/layout.gif" border="0"/><strong>Active Theme</strong></div>';
-			$response['content'] .= '	<div class="RightItem">' . $license_info['theme_name'] . '</div>';
-			$response['content'] .= '</div>';
-			$response['content'] .= '<div style="clear:both;"></div>';
-			
-			// Current Version
-			$response['content'] .= '<div class="Row1" style="border-bottom:0;-moz-border-radius:0 0 3px 3px;-webkit-border-radius:0 0 3px 3px;">';
-			$response['content'] .= '	<div class="LeftItem"><img class="valign_img" src="'. get_option('home') .'/wp-content/plugins/OnePanel/images/default/icons/version.gif" border="0"/><strong>Version</strong></div>';
-			$response['content'] .= '	<div class="RightItem">' . ONE_PANEL_VERSION . ($this->SoftwareUpgradeAvailable() ? ' <em>(Out of Date)</em>': '') . '</div>';
-			$response['content'] .= '</div>';
-			$response['content'] .= '<div style="clear:both;"></div>';
-			
-			// Closing DIVs
-			$response['content'] .= '</div>';
-			$response['content'] .= '</div>';
-			$response['content'] .= '<div style="clear:both;"></div>';
-			
-			
-			// Park Key
-			$response['content'] .= '<div class="QuickNote">';
-			$response['content'] .= '<div class="QuickNoteStroke">';
-			$response['content'] .= '<span class="LTitle">' . $license_info['licensee_name'] . ', did you know?</span>You can move your License Key to a new domain by using the <a href="http://members.one-theme.com">Members Area</a>. Simply login and "Park" the License Key of your choosing. You will then be able to activate the same key again on another domain.';
-			$response['content'] .= '</div>';
-			$response['content'] .= '</div>';
-			
-			// UTF8 failsafe
-			$response['content'] = utf8_encode( $response['content'] );
-			
-			$response['title'] = ''. $license_info['licensee_name'] . '\'s License';
-			$response['info'] = 'Something here';
-			
-			die( json_encode( $response ) );
-			
-		}
 		
 		
 		/**
@@ -1901,15 +1814,7 @@
 		}
 		
 		
-		public function PrintServerDown() {
-
-			OnePanelInstaller::PrintSimpleHeader();
-			
-			echo '<div align="center">Sorry, our servers seem to be down for the moment. Please contact customer support so that we can get them back up as soon as possible!</div>';
-			
-			OnePanelInstaller::PrintFooter();
-			
-		}
+		
 		
 		
 		/**
