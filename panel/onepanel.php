@@ -73,8 +73,7 @@
 			
 			// Retrieve the operational data from the db and check for fresh install
 		    if (! $this->ImplementWorkingData() ) {
-		    	$this->InitiateInstallInterface();
-				return true; // Breakout
+		    	$this->Install();
 		    }
 			
 		    
@@ -205,22 +204,6 @@
 	    
 	    
 
-	    /**
-	     * InitiateInstallInterface
-	     * 
-	     * Tells the system to render the license installation interface.
-	     * 
-	     * @return true
-	     */
-	    private function InitiateInstallInterface() {
-	    	
-    		OnePanelDebug::Info( 'Fresh install detected.' );
-	    	self::Install();
-	    	
-	    }
-	    
-	    
-	    
 	    /**
 	     * DetermineDataIntegrity
 	     * 
